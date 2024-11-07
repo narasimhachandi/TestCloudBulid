@@ -2,14 +2,27 @@ steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/myimage', 
+           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/test-image', 
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/myimage']
-
+           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/test-image']
+  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'my_service'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/test-image'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      
 options:
   logging: CLOUD_LOGGING_ONLY 
   
