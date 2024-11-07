@@ -12,4 +12,4 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY 
-  logsBucket: gs://my-bucket-cloud-build-logs
+  
