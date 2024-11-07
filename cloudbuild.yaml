@@ -1,4 +1,5 @@
 steps:
+logBucket : "gs://my-bucket-cloud-build-logs"
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
