@@ -22,6 +22,8 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
+      - 'timeout=300s'
+      - '--port=8080'
 
 options:
   logging: CLOUD_LOGGING_ONLY 
