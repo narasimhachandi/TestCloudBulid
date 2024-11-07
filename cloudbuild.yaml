@@ -1,0 +1,13 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/myimage', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/myimage']
+
+ 
