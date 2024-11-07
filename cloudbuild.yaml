@@ -10,4 +10,6 @@ steps:
     args: ['push', 
            'us-central1-docker.pkg.dev/orbital-wording-440911-u9/cloudbuilddocker/myimage']
 
- 
+options:
+  logging: CLOUD_LOGGING_ONLY 
+  logsBucket: gs://my-bucket-cloud-build-logs
